@@ -10,9 +10,10 @@ var make_ezxfadr = function (delta, timeout, id) {
       var next_new_opacity = Math.min(Number(new_img.style.opacity) + delta, 1);
       old_img.style.opacity = next_old_opacity;
       new_img.style.opacity = next_new_opacity;
-      if (next_old_opacity > 0 || next_new_opacity < 1) {
+      if (next_new_opacity < 1) {
         setTimeout(rec, timeout);
       } else {              
+        old_img.style.opacity = 0; // just in case we're out of sync...
         old_img = new_img;
         new_img = false;
       }
