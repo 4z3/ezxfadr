@@ -1,3 +1,9 @@
+/*!
+ * ezxfadr v0.0
+ *  Copyright 2011, tv
+ *  Released under the MIT License.
+ *  More information: https://github.com/4z3/ezxfadr
+ */
 var make_ezxfadr = function (delta, timeout, id) {
   var old_img = { style: { opacity: '1' }},
       new_img,
