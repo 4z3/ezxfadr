@@ -1,0 +1,27 @@
+<!doctype html>
+<title>ezxfadr.js example</title>
+<script type="application/javascript" src="ezxfadr.js"></script>
+<script type="application/javascript">
+  window.onload = function () {
+    fade = make_ezxfadr(.1, 42, 'xi1');
+  }
+</script>
+<style>
+  #ximg_frame {
+    position: relative;
+  }
+  .ximg {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+</style>
+<a href="javascript:fade('xi1')">IMAGE1</a>
+<a href="javascript:fade('xi2')">IMAGE2</a>
+<a href="javascript:fade('xi3')">IMAGE3</a>
+<div id="ximg_frame">
+  <img class="ximg" id="xi1" src="1.jpg" />
+  <img class="ximg" id="xi2" src="2.jpg" />
+  <img class="ximg" id="xi3" src="3.jpg" />
+</div>
