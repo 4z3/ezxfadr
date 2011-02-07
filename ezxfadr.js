@@ -1,16 +1,16 @@
 var make_ezxfadr = function (delta, timeout, id) {
   var old_img = { style: { opacity: '1' }},
       new_img,
-      ezfadr = function (id) {
+      ezxfadr = function (id) {
     if (old_img.id === id) return; // do not crossfade the same img
     if (new_img) return; // do not fade if we're already fading...
     new_img = document.getElementById(id);
     (function rec () {
-      var old_opacity = Number(old_img.style.opacity);
-      var new_opacity = Number(new_img.style.opacity);
-      old_img.style.opacity = Math.max(old_opacity - delta, 0);
-      new_img.style.opacity = Math.min(new_opacity + delta, 1);
-      if (new_opacity < 1 || old_opacity > 0) {
+      var next_old_opacity = Math.max(Number(old_img.style.opacity) - delta, 0);
+      var next_new_opacity = Math.min(Number(new_img.style.opacity) + delta, 1);
+      old_img.style.opacity = next_old_opacity;
+      new_img.style.opacity = next_new_opacity;
+      if (next_old_opacity > 0 || next_new_opacity < 1) {
         setTimeout(rec, timeout);
       } else {              
         old_img = new_img;
@@ -18,6 +18,6 @@ var make_ezxfadr = function (delta, timeout, id) {
       }
     })();
   };
-  ezfadr(id); // fade-in first image
-  return ezfadr;
+  ezxfadr(id); // fade-in first image
+  return ezxfadr;
 };
